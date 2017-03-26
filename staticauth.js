@@ -31,7 +31,7 @@ let instructions = `
 `;
 
 let layout = function(x) { return x+"<br />\n"+instructions; };
-
+app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
 app.use(session({
     secret: '2C44-4D44-WppQ38S',
@@ -100,6 +100,6 @@ app.get('/content/*?',
  
 app.use('/content', express.static(path.join(__dirname, 'public')));
 
-app.listen(8080);
-console.log("app running at http://localhost:8080");
+app.listen(8086);
+console.log("app running at http://localhost:8086");
 
