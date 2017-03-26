@@ -8,8 +8,13 @@ let path = require('path');
 let util = require("util");
 var http = require('http');
 var fs = require('fs');
+var bodyParser = require('body-parser');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 var html = fs.readFileSync('index.html');
+var temperatura = fs.readFileSync('temperatura.html');
 
 let bcrypt = require("bcrypt-nodejs");
 let hash = bcrypt.hashSync("amyspassword");
@@ -40,6 +45,15 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/temperatura', function (req, res){
+    res.writeHead(200, {'Content-Type': 'text/temperatura'});
+    res.end(temperatura)
+
+});
+app.get('/login', function (req, res, next) {
+ res.render('login');
+});
+
 // Authentication and Authorization Middleware
 let auth = function(req, res, next) {
   if (req.session && req.session.user in users)
@@ -48,15 +62,18 @@ let auth = function(req, res, next) {
     return res.sendStatus(401); // https://httpstatuses.com/401
 };
  
+
+
+
 // Login endpoint
-app.get('/login', function (req, res) {
-  console.log(req.query);
-  if (!req.query.username || !req.query.password) {
+app.post('/login', function (req, res) {
+  console.log(req.body);
+  if (!req.body.username || !req.body.password) {
     console.log('login failed');
     res.send('login failed');    
-  } else if(req.query.username in users  && 
-            bcrypt.compareSync(req.query.password, users[req.query.username])) {
-    req.session.user = req.query.username;
+  } else if(req.body.username in users  && 
+            bcrypt.compareSync(req.body.password, users[req.body.username])) {
+    req.session.user = req.body.username;
     req.session.admin = true;
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(html)
