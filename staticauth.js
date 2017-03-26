@@ -14,7 +14,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 var html = fs.readFileSync('index.html');
-var temperatura = fs.readFileSync('temperatura.html');
 
 let bcrypt = require("bcrypt-nodejs");
 let hash = bcrypt.hashSync("amyspassword");
@@ -45,11 +44,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/temperatura', function (req, res){
-    res.writeHead(200, {'Content-Type': 'text/temperatura'});
-    res.end(temperatura)
-
-});
 app.get('/login', function (req, res, next) {
  res.render('login');
 });
@@ -99,6 +93,13 @@ app.get('/content/*?',
 );
  
 app.use('/content', express.static(path.join(__dirname, 'public')));
+
+app.get('/libro/*?', 
+    auth  // next only if authenticated
+);
+
+app.use('/temperatura', express.static(path.join(__dirname, 'OP')));
+app.use('/libro', express.static(path.join(__dirname, '_book')));
 
 app.listen(8086);
 console.log("app running at http://localhost:8086");
