@@ -1,0 +1,54 @@
+#container{
+    height:100%;
+    width: 100%;
+    margin-bottom:-50px;
+    position:relative;
+    color:red;
+}
+
+#seccion_central
+{
+    margin-top:50px;
+    
+}
+
+
+.u-full-width {
+  width: 96%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+  
+#converted      /*estilo para el resultado*/
+{
+    color: green;
+    font-weight: bold;
+    font-size:large;
+
+}
+
+#recuadro{
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 2px solid #f0e8f0;
+    margin-top: 60px;
+    text-align:left;
+    background-color: #ACFA58;
+}
+
+#izquierda{
+    width: 50%;
+    float:left;
+}
+
+#derecha{
+    width: 50%;
+    float: right;
+}
+

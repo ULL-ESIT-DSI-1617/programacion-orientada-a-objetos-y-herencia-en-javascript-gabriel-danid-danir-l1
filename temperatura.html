@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="utf-8">
+  <title>Conversor de Temperatura</title>
+  <meta name="description" content="Conversor de medidas">
+
+  <!-- Mobile Specific Metas
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+  <link rel="stylesheet" href="OP/css/chuchu.css">
+
+  <!-- JS ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+  <script type="text/javascript" src="OP/js/conversor.js"></script>
+
+  <!--XRegExp-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xregexp/2.0.0/xregexp-all-min.js"></script>
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="OP/images/temperatura.ico">
+
+</head>
+<body>
+
+
+
+  <div class="container">
+    </br>
+    <table  width="100%" border="1" cellpadding="0" cellspacing="0" bgcolor="#F3F781">
+    <tr><td align="center"><h1>Conversor de Temperatura</h1></td></tr>
+    </table>
+    </br>
+    <div class="seccion_central">
+      <table align="center">
+      <tr>
+        <label>Introduzca temperatura a convertir: </label>
+        <input id="convert" class="u-full-width" type="text" autofocus onchange="convertir();" placeholder="Introduzca un valor">
+        <span id="converted"></span>
+      </tr>
+    </div>
+  </div>
+
+
+  <div>
+    <fieldset id="recuadro">
+      <p>Calculadora de conversión de tipos de Medidas que permite hacer conversiones de Temperaturas y Distancias.</p>
+      <div id = "izquierda">
+          <p><b>Temperaturas</b></p>
+            <ul>
+              <li>Celsius: 1 ºC = 33.80 F</li>
+              <li>Fahrenheit: 1 F = -17.22 ºC</li>
+              <li>Kelvin: 1 K = -272.15 ºC</li>
+            </ul>
+      </div>
+      <div id = "derecha">
+        <p><b>Distancias</b></p>
+          <ul>
+            <li>Kilómetros: 1 Km = 1000 m = 100000 cm = 39370 in</li>
+            <li>Centímetros: 1cm = 0.01 m = 0.00001 Km = 0.39 in</li
+          </ul>
+      </div>
+      <div id = "derecha">
+      <p><b>Volumen</b></p>
+          <ul>
+            <li>Metros cúbicos: 1m3 = 1000 litros = 1000000 cm3</li>
+          </ul>
+      </div>
+    </fieldset>
+  </div>
+</body>
+</html>
